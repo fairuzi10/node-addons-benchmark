@@ -1,0 +1,15 @@
+{
+  "name": "matching-addon",
+  "version": "0.0.0",
+  "description": "Node.js Addons Example on String Matching",
+  "main": "matching-addon.js",
+  "private": true,
+  "dependencies": {
+    "bindings": "~1.2.1",
+    "nan": "^2.0.0"
+  },
+  "scripts": {
+    "test": "node matching-addon.js"
+  },
+  "gypfile": true
+}
