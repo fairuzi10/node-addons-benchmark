@@ -1,5 +1,5 @@
-#include <unordered_set>
 #include <nan.h>
+#include <unordered_set>
 #include "schema.cc"
 
 Nan::Persistent<v8::Function> Set::constructor;
@@ -86,8 +86,6 @@ void Set::Has(const Nan::FunctionCallbackInfo<v8::Value>& info) {
   info.GetReturnValue().Set(Nan::New(contains));
 }
 
-void InitAll(v8::Local<v8::Object> exports) {
-  Set::Init(exports);
-}
+void InitAll(v8::Local<v8::Object> exports) { Set::Init(exports); }
 
 NODE_MODULE(addon, InitAll)
