@@ -1,4 +1,4 @@
-var addon = require('bindings')('matrix-addon.node')
+const addon = require('bindings')('matrix-addon.node')
 
 const n = 200;
 const p = 100000;

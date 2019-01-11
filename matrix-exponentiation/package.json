@@ -1,5 +1,5 @@
 {
-  "name": "matrix-exponentiation",
+  "name": "matrix-exponentiation-addon",
   "version": "0.0.0",
   "description": "Node.js Addons Example on Matrix Exponentiation",
   "main": "matrix-addon.js",
