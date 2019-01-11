@@ -16,3 +16,4 @@ console.time("Matching Addon Buffer");
 const result = addon.countOccurrence(str, pattern);
 console.timeEnd("Matching Addon Buffer");
 
+console.log(result);

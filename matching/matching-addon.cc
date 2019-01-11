@@ -1,6 +1,11 @@
 #include <nan.h>
 #include <string>
 
+// Map a to 1, b to 2 and so forth
+inline int charCode(char c) {
+    return c - 96;
+}
+
 // An O(N + M) algorithm counting the `pattern` occurrence in `str` string
 int countOccurrence(std::string str, std::string pattern) {
     int n = str.length();
@@ -14,13 +19,13 @@ int countOccurrence(std::string str, std::string pattern) {
     long long mod = 10000000000037;
     long long hashPattern = 0;
     for (int i = 0; i < m; i++) {
-        hashPattern = (hashPattern*base + pattern[i]-'a'+1) % mod;
+        hashPattern = (hashPattern*base + charCode(pattern[i])) % mod;
     }
 
     long long hashStr = 0;
     long long baseLast = 1;
     for (int i = 0; i < m; i++) {
-        hashStr = (hashStr*base + str[i]-'a'+1) % mod;
+        hashStr = (hashStr*base + charCode(str[i])) % mod;
         if (i < m-1) {
             baseLast = (baseLast*base) % mod;
         }
@@ -32,11 +37,11 @@ int countOccurrence(std::string str, std::string pattern) {
     }
     for (int i = m; i < n; i++) {
         // removing the last character
-        hashStr = (hashStr - (str[i-m]-'a'+1)*baseLast) % mod;
+        hashStr = (hashStr - charCode(str[i-m])*baseLast) % mod;
         if (hashStr < 0) {
             hashStr += mod;
         }
-        hashStr = (hashStr*base + str[i]-'a'+1) % mod;
+        hashStr = (hashStr*base + charCode(str[i])) % mod;
         if (hashStr == hashPattern) {
             ret++;
         }

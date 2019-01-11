@@ -1,3 +1,8 @@
+// Map a to 1, b to 2 and so forth
+const charCode = (c) => {
+    return c.charCodeAt(0) - 96;
+}
+
 // An O(N + M) algorithm counting the `pattern` occurrence in `str` string
 const countOccurrence = (str, pattern) => {
     const n = str.length;
@@ -7,17 +12,18 @@ const countOccurrence = (str, pattern) => {
         return 0;
     }
 
+    const aAscii = "a".charCodeAt(0);
     const base = 37;
     const mod = 10000000000037;
     let hashPattern = 0;
     for (let i = 0; i < m; i++) {
-        hashPattern = (hashPattern*base + pattern.charCodeAt(i)+1) % mod;
+        hashPattern = (hashPattern*base + charCode(pattern.charAt(i))) % mod;
     }
 
     let hashStr = 0;
     let baseLast = 1;
     for (let i = 0; i < m; i++) {
-        hashStr = (hashStr*base + str.charCodeAt(i)+1) % mod;
+        hashStr = (hashStr*base + charCode(str.charAt(i))) % mod;
         if (i < m-1) {
             baseLast = (baseLast*base) % mod;
         }
@@ -29,11 +35,11 @@ const countOccurrence = (str, pattern) => {
     }
     for (let i = m; i < n; i++) {
         // removing the last character
-        hashStr = (hashStr - (str.charCodeAt(i-m)+1)*baseLast) % mod;
+        hashStr = (hashStr - charCode(str.charAt(i-m))*baseLast) % mod;
         if (hashStr < 0) {
             hashStr += mod;
         }
-        hashStr = (hashStr*base + str.charCodeAt(i)+1) % mod;
+        hashStr = (hashStr*base + charCode(str.charAt(i))) % mod;
         if (hashStr === hashPattern) {
             ret++;
         }
@@ -43,6 +49,7 @@ const countOccurrence = (str, pattern) => {
 
 // A helper method for building string due to Javascript bad performance on string
 const buildStr = (len) => {
+    const aAscii = "a".charCodeAt(0);
     let az = "";
     for (let i = 0; i < 26; i++) {
         az += String.fromCharCode(i + aAscii);
@@ -69,3 +76,5 @@ const pattern = buildStr(m);
 console.time("Matching");
 const result = countOccurrence(str, pattern);
 console.timeEnd("Matching");
+
+console.log(result);
