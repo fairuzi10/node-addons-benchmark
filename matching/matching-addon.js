@@ -26,6 +26,6 @@ const str = buildStr(n);
 const pattern = buildStr(m);
 
 console.time("Matching Addon");
-console.log(addon.countOccurrence(str, pattern));
+const result = addon.countOccurrence(str, pattern);
 console.timeEnd("Matching Addon");
 
