@@ -12,7 +12,7 @@ for (let i = 0; i < 26; i++) {
 const str = Buffer.alloc(n, az);
 const pattern = Buffer.alloc(m, az);
 
-console.time("Matching Addon");
-console.log(addon.countOccurrence(str, pattern));
-console.timeEnd("Matching Addon");
+console.time("Matching Addon Buffer");
+const result = addon.countOccurrence(str, pattern);
+console.timeEnd("Matching Addon Buffer");
 
