@@ -1,6 +1,6 @@
 const addon = require('bindings')('set');
 
-const n = 1000000;
+const n = 7500000;
 const set = new addon.Set();
 
 console.time("Set Addon");

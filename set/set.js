@@ -1,4 +1,4 @@
-const n = 1000000;
+const n = 7500000;
 const set = new Set();
 
 console.time("Set");

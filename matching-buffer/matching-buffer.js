@@ -47,8 +47,8 @@ const countOccurrence = (str, pattern) => {
     return ret;
 }
 
-const n = 50000000;
-const m = 1000000;
+const n = 75000000;
+const m = n/10;
 
 const aAscii = 'a'.charCodeAt(0);
 let az = "";

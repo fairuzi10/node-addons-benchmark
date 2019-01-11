@@ -21,8 +21,8 @@ const buildStr = (len) => {
     return ret
 }
 
-const n = 50000000;
-const m = 1000000;
+const n = 75000000;
+const m = n/10;
 const str = buildStr(n);
 const pattern = buildStr(m);
 

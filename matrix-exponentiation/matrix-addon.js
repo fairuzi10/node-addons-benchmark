@@ -1,7 +1,7 @@
 const addon = require('bindings')('matrix-addon.node')
 
-const n = 200;
-const p = 100000;
+const n = 100;
+const p = 1000000;
 const M = []
 for (let i = 0; i < n; i++) {
     M.push([]);
@@ -10,9 +10,9 @@ for (let i = 0; i < n; i++) {
     }
 }
 
-console.time("Matrix Multiplication Addon");
-const mulResult = addon.multiply(M, M);
-console.timeEnd("Matrix Multiplication Addon");
+// console.time("Matrix Multiplication Addon");
+// const mulResult = addon.multiply(M, M);
+// console.timeEnd("Matrix Multiplication Addon");
 
 console.time("Matrix Exponentiation Addon");
 const powResult = addon.power(M, p);
