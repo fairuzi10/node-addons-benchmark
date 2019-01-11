@@ -34,7 +34,7 @@ const countOccurrence = (str, pattern) => {
             hashStr += mod;
         }
         hashStr = (hashStr*base + str.charCodeAt(i)+1) % mod;
-        if (hashStr == hashPattern) {
+        if (hashStr === hashPattern) {
             ret++;
         }
     }
