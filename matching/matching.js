@@ -1,3 +1,4 @@
+// An O(N + M) algorithm counting the `pattern` occurrence in `str` string
 const countOccurrence = (str, pattern) => {
     const n = str.length;
     const m = pattern.length;
@@ -40,6 +41,7 @@ const countOccurrence = (str, pattern) => {
     return ret;
 }
 
+// A helper method for building string due to Javascript bad performance on string
 const buildStr = (len) => {
     let az = "";
     for (let i = 0; i < 26; i++) {
@@ -61,13 +63,8 @@ const buildStr = (len) => {
 
 const n = 50000000;
 const m = 1000000;
-
-let str = "";
-let pattern = "";
-const aAscii = 'a'.charCodeAt(0);
-
-str = buildStr(n);
-pattern = buildStr(m);
+const str = buildStr(n);
+const pattern = buildStr(m);
 
 console.time("Matching");
 console.log(countOccurrence(str, pattern));

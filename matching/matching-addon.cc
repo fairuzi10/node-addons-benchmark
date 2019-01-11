@@ -1,6 +1,7 @@
 #include <nan.h>
 #include <string>
 
+// An O(N + M) algorithm counting the `pattern` occurrence in `str` string
 int countOccurrence(std::string str, std::string pattern) {
     int n = str.length();
     int m = pattern.length();

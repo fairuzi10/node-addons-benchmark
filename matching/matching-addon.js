@@ -1,5 +1,6 @@
 const addon = require('bindings')('matching-addon.node')
 
+// A helper method for building string due to Javascript bad performance on string
 const buildStr = (len) => {
     let az = "";
     for (let i = 0; i < 26; i++) {
@@ -21,13 +22,8 @@ const buildStr = (len) => {
 
 const n = 50000000;
 const m = 1000000;
-
-let str = "";
-let pattern = "";
-const aAscii = 'a'.charCodeAt(0);
-
-str = buildStr(n);
-pattern = buildStr(m);
+const str = buildStr(n);
+const pattern = buildStr(m);
 
 console.time("Matching Addon");
 console.log(addon.countOccurrence(str, pattern));
